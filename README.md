@@ -1,8 +1,10 @@
 ## Sample 简介
 
-一个简单的结合 Retrofit 和 RxJava 框架实现 MVVM 架构的例子。
+一个简单的结合 Retrofit 和 RxJava 框架实现 MVVM 架构的例子。2022-06-26 进行翻新。
 
-该项目基于https://github.com/githubhaohao/MVVMRxJavaRetrofitSample修改得来。
+该项目基于https://github.com/githubhaohao/MVVMRxJavaRetrofitSample
+
+修改得来。
 
 修改部分如下：
 
