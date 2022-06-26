@@ -2,11 +2,23 @@
 
 一个简单的结合 Retrofit 和 RxJava 框架实现 MVVM 架构的例子。
 
-最近在研究 [Kotlin](https://github.com/githubhaohao/JavaToKotlin) for Android，做了一个基于 Clean 架构以及 Retrofit ， RxKotlin ， Dagger 框架实现的 Kotlin for Android App ，更多详情请[戳这里](https://github.com/githubhaohao/DoubanBook)。
+该项目基于https://github.com/githubhaohao/MVVMRxJavaRetrofitSample修改得来。
+
+修改部分如下：
+
+- 更换接口为douban-imdb-api的接口，地址：https://github.com/iiiiiii1/douban-imdb-api
+- 升级项目Gradle为7.3.3，对应插件版本7.2.1，2022-06-26最新版android studio测试通过
+- 升级项目至androidx，rxjava3
+- 由于top250的评分都挺高的，把星星调整到了10个，这样大家能看出来点区别。
+- 添加我学习的时候的注释
 
 ## 效果预览
 
-![result](https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/image/sample.gif?raw=true)
+除更换图片及部分第三方类库名称修改以外，下方大部分均为原作者原库原文。
+
+感谢原作者。
+
+![studio64_haMfMtVZ4c](img/studio64_haMfMtVZ4c.gif)
 
 [Demo 下载](https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/demo.apk)
 
@@ -68,24 +80,26 @@ RxJava 本质上是一个异步操作库，是一个能让你用极其简洁的�
 
 ## 实践
 
-嫌代码不够高亮？请移步博客[http://haohaochang.cn](http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/)
+嫌代码不够高亮？请移步博客[http://haohaochang.cn](http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/)[注：这是原项目的博客，截止目前已经无法访问。由于我并没有系统的学习MVVM，所以就不献丑自己写博客了，知道这件事不浪费时间就好，跑一跑代码运行运行吧]
 
 直接上代码。
 
-### 依赖的第三方类库
+### 依赖的第三方类库(androidx不表)
 
 ```gradle
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation "io.reactivex.rxjava3:rxjava:3.1.5"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:glide:4.11.0'
 ```
 
 ### API
 
-`https://api.douban.com/v2/movie/top250?start=0&count=20`
+`https://api.wmdb.tv/api/v1/top?type=Douban&skip=0&limit=50&lang=Cn`
 
 ### 引入DataBinding
 
@@ -102,14 +116,18 @@ android {
 
 ### 工程目录结构
 
-![目录](https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true)
+![image-20220626214513001](img/image-20220626214513001.png)
+
+## 关于下面的代码
+
+由于下面都是原本大佬的代码，照着名字从我的项目里对比着找就好，我就不重复粘贴代码了，毕竟这是个翻新而不是个博客教程，很抱歉我并不会MVVM，只是在学习的时候自己翻新了这个项目，不愿意让它吃灰罢了。
 
 ### MVVM 之 View
 
 **MainActivity.java**
 
 ```java
-getFragmentManager().beginTransaction().add(R.id.movie_fragment, MovieFragment.getInstance()).commit();
+//getFragmentManager().beginTransaction().add(R.id.movie_fragment, MovieFragment.getInstance()).commit();
 
 ```
 

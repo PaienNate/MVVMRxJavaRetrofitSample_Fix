@@ -1,36 +1,125 @@
 package com.jc.mvvmrxjavaretrofitsample.model.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
-/**
- * Created by HaohaoChang on 2017/2/11.
- */
+//使用GSON生成替代原本的数据类，主要是接口更新但是我懒得自己写数据类了。
 public class Movie {
-    private String id;
-    private String alt;
-    private String year;
-    private String title;
-    private String original_title;
-    private List<String> genres;
-    private List<Cast> casts;
-    private List<Cast> directors;
-    private Avatars images;
-    private Rating rating;
 
-    public Rating getRating() {
-        return rating;
+    /**
+     * data
+     */
+    @SerializedName("data")
+    private List<DataBean> data;
+    /**
+     * createdAt
+     */
+    @SerializedName("createdAt")
+    private Long createdAt;
+    /**
+     * updatedAt
+     */
+    @SerializedName("updatedAt")
+    private Long updatedAt;
+    /**
+     * id
+     */
+    @SerializedName("id")
+    private String id;
+    /**
+     * originalName
+     */
+    @SerializedName("originalName")
+    private String originalName;
+    /**
+     * imdbVotes
+     */
+    @SerializedName("imdbVotes")
+    private Integer imdbVotes;
+    /**
+     * imdbRating
+     */
+    @SerializedName("imdbRating")
+    private String imdbRating;
+    /**
+     * rottenRating
+     */
+    @SerializedName("rottenRating")
+    private String rottenRating;
+    /**
+     * rottenVotes
+     */
+    @SerializedName("rottenVotes")
+    private Integer rottenVotes;
+    /**
+     * year
+     */
+    @SerializedName("year")
+    private String year;
+    /**
+     * imdbId
+     */
+    @SerializedName("imdbId")
+    private String imdbId;
+    /**
+     * alias
+     */
+    @SerializedName("alias")
+    private String alias;
+    /**
+     * doubanId
+     */
+    @SerializedName("doubanId")
+    private String doubanId;
+    /**
+     * type
+     */
+    @SerializedName("type")
+    private String type;
+    /**
+     * doubanRating
+     */
+    @SerializedName("doubanRating")
+    private String doubanRating;
+    /**
+     * doubanVotes
+     */
+    @SerializedName("doubanVotes")
+    private Integer doubanVotes;
+    /**
+     * duration
+     */
+    @SerializedName("duration")
+    private Integer duration;
+    /**
+     * dateReleased
+     */
+    @SerializedName("dateReleased")
+    private String dateReleased;
+
+    public List<DataBean> getData() {
+        return data;
     }
 
-    public class Rating {
-        float average;
+    public void setData(List<DataBean> data) {
+        this.data = data;
+    }
 
-        public void setAverage(float average) {
-            this.average = average;
-        }
+    public Long getCreatedAt() {
+        return createdAt;
+    }
 
-        public float getAverage() {
-            return average;
-        }
+    public void setCreatedAt(Long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Long getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Long updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getId() {
@@ -41,12 +130,44 @@ public class Movie {
         this.id = id;
     }
 
-    public String getAlt() {
-        return alt;
+    public String getOriginalName() {
+        return originalName;
     }
 
-    public void setAlt(String alt) {
-        this.alt = alt;
+    public void setOriginalName(String originalName) {
+        this.originalName = originalName;
+    }
+
+    public Integer getImdbVotes() {
+        return imdbVotes;
+    }
+
+    public void setImdbVotes(Integer imdbVotes) {
+        this.imdbVotes = imdbVotes;
+    }
+
+    public String getImdbRating() {
+        return imdbRating;
+    }
+
+    public void setImdbRating(String imdbRating) {
+        this.imdbRating = imdbRating;
+    }
+
+    public String getRottenRating() {
+        return rottenRating;
+    }
+
+    public void setRottenRating(String rottenRating) {
+        this.rottenRating = rottenRating;
+    }
+
+    public Integer getRottenVotes() {
+        return rottenVotes;
+    }
+
+    public void setRottenVotes(Integer rottenVotes) {
+        this.rottenVotes = rottenVotes;
     }
 
     public String getYear() {
@@ -57,59 +178,147 @@ public class Movie {
         this.year = year;
     }
 
-    public String getTitle() {
-        return title;
+    public String getImdbId() {
+        return imdbId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
     }
 
-    public String getOriginal_title() {
-        return original_title;
+    public String getAlias() {
+        return alias;
     }
 
-    public void setOriginal_title(String original_title) {
-        this.original_title = original_title;
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
-    public List<String> getGenres() {
-        return genres;
+    public String getDoubanId() {
+        return doubanId;
     }
 
-    public void setGenres(List<String> genres) {
-        this.genres = genres;
+    public void setDoubanId(String doubanId) {
+        this.doubanId = doubanId;
     }
 
-    public List<Cast> getCasts() {
-        return casts;
+    public String getType() {
+        return type;
     }
 
-    public void setCasts(List<Cast> casts) {
-        this.casts = casts;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public List<Cast> getDirectors() {
-        return directors;
+    public String getDoubanRating() {
+        return doubanRating;
     }
 
-    public void setDirectors(List<Cast> directors) {
-        this.directors = directors;
+    public void setDoubanRating(String doubanRating) {
+        this.doubanRating = doubanRating;
     }
 
-    public Avatars getImages() {
-        return images;
+    public Integer getDoubanVotes() {
+        return doubanVotes;
     }
 
-    public void setImages(Avatars images) {
-        this.images = images;
+    public void setDoubanVotes(Integer doubanVotes) {
+        this.doubanVotes = doubanVotes;
     }
 
-    private class Cast{
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public String getDateReleased() {
+        return dateReleased;
+    }
+
+    public void setDateReleased(String dateReleased) {
+        this.dateReleased = dateReleased;
+    }
+
+    public static class DataBean {
+        /**
+         * createdAt
+         */
+        @SerializedName("createdAt")
+        private Long createdAt;
+        /**
+         * updatedAt
+         */
+        @SerializedName("updatedAt")
+        private Long updatedAt;
+        /**
+         * id
+         */
+        @SerializedName("id")
         private String id;
+        /**
+         * poster
+         */
+        @SerializedName("poster")
+        private String poster;
+        /**
+         * name
+         */
+        @SerializedName("name")
         private String name;
-        private String alt;
-        private Avatars avatars;
+        /**
+         * genre
+         */
+        @SerializedName("genre")
+        private String genre;
+        /**
+         * description
+         */
+        @SerializedName("description")
+        private String description;
+        /**
+         * language
+         */
+        @SerializedName("language")
+        private String language;
+        /**
+         * country
+         */
+        @SerializedName("country")
+        private String country;
+        /**
+         * lang
+         */
+        @SerializedName("lang")
+        private String lang;
+        /**
+         * shareImage
+         */
+        @SerializedName("shareImage")
+        private String shareImage;
+        /**
+         * movie
+         */
+        @SerializedName("movie")
+        private String movie;
+
+        public Long getCreatedAt() {
+            return createdAt;
+        }
+
+        public void setCreatedAt(Long createdAt) {
+            this.createdAt = createdAt;
+        }
+
+        public Long getUpdatedAt() {
+            return updatedAt;
+        }
+
+        public void setUpdatedAt(Long updatedAt) {
+            this.updatedAt = updatedAt;
+        }
 
         public String getId() {
             return id;
@@ -117,6 +326,14 @@ public class Movie {
 
         public void setId(String id) {
             this.id = id;
+        }
+
+        public String getPoster() {
+            return poster;
+        }
+
+        public void setPoster(String poster) {
+            this.poster = poster;
         }
 
         public String getName() {
@@ -127,55 +344,60 @@ public class Movie {
             this.name = name;
         }
 
-        public String getAlt() {
-            return alt;
+        public String getGenre() {
+            return genre;
         }
 
-        public void setAlt(String alt) {
-            this.alt = alt;
+        public void setGenre(String genre) {
+            this.genre = genre;
         }
 
-        public Avatars getAvatars() {
-            return avatars;
+        public String getDescription() {
+            return description;
         }
 
-        public void setAvatars(Avatars avatars) {
-            this.avatars = avatars;
+        public void setDescription(String description) {
+            this.description = description;
         }
 
-        @Override
-        public String toString() {
-            return "cast.id=" + id + " cast.name=" + name + " | ";
-        }
-    }
-
-    public class Avatars{
-        private String small;
-        private String medium;
-        private String large;
-
-        public String getSmall() {
-            return small;
+        public String getLanguage() {
+            return language;
         }
 
-        public void setSmall(String small) {
-            this.small = small;
+        public void setLanguage(String language) {
+            this.language = language;
         }
 
-        public String getMedium() {
-            return medium;
+        public String getCountry() {
+            return country;
         }
 
-        public void setMedium(String medium) {
-            this.medium = medium;
+        public void setCountry(String country) {
+            this.country = country;
         }
 
-        public String getLarge() {
-            return large;
+        public String getLang() {
+            return lang;
         }
 
-        public void setLarge(String large) {
-            this.large = large;
+        public void setLang(String lang) {
+            this.lang = lang;
+        }
+
+        public String getShareImage() {
+            return shareImage;
+        }
+
+        public void setShareImage(String shareImage) {
+            this.shareImage = shareImage;
+        }
+
+        public String getMovie() {
+            return movie;
+        }
+
+        public void setMovie(String movie) {
+            this.movie = movie;
         }
     }
 }
